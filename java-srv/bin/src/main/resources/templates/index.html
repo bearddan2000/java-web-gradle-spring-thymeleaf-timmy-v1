@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header"/>
+</head>
+
+<body>
+
+<div th:replace="fragments/nav :: nav"/>
+
+<h2>
+    <span th:text="${title}"></span>
+</h2>
+<a th:href="@{/current}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current</a>
+<a th:href="@{/historical}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Historical</a>
+</body>
+<div th:replace="fragments/header :: footer"/>
+</html>

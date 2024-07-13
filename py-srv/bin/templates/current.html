@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+{% block content %}
+<button id="print-button" onclick="onClick(6)">Html2Pdf</button>
+<div id="current">
+  <h2>Today's report Status</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>Measurement</th>
+      <th>Day before, bus ride home</th>
+      <th>Bedtime</th>
+      <th>Sleep</th>
+      <th>Breakfast</th>
+      <th>Morning</th>
+      <th>Hygien</th>
+    </tr>
+    <tr>
+      <td>Today</td>
+      {% if item.bus.num_id == 0 %}
+      <td>N/A</td>
+      {% elif item.bus.num_id == 1 %}
+      <td class="status-great">Great</td>
+      {% elif item.bus.num_id == 2 %}
+      <td class="status-ok">Okay</td>
+      {% else %}
+      <td class="status-attention">Not good</td>
+      {% endif %}
+      {% if item.bedtime.num_id == 0 %}
+      <td>N/A</td>
+      {% elif item.bedtime.num_id == 1 %}
+      <td class="status-great">Great</td>
+      {% elif item.bedtime.num_id == 2 %}
+      <td class="status-ok">Okay</td>
+      {% else %}
+      <td class="status-attention">Not good</td>
+      {% endif %}
+      {% if item.sleep.num_id == 0 %}
+      <td>N/A</td>
+      {% elif item.sleep.num_id == 1 %}
+      <td class="status-great">Great</td>
+      {% elif item.sleep.num_id == 2 %}
+      <td class="status-ok">Okay</td>
+      {% else %}
+      <td class="status-attention">Not good</td>
+      {% endif %}
+      {% if item.eat.num_id == 0 %}
+      <td>N/A</td>
+      {% elif item.eat.num_id == 1 %}
+      <td class="status-great">Full breakfast</td>
+      {% elif item.eat.num_id == 2 %}
+      <td class="status-ok">A little breakfast</td>
+      {% else %}
+      <td class="status-attention">Nothing, I need to eat at school</td>
+      {% endif %}
+      {% if item.morning.num_id == 0 %}
+      <td>N/A</td>
+      {% elif item.morning.num_id == 1 %}
+      <td class="status-great">Normal, nothing different</td>
+      {% elif item.morning.num_id == 2 %}
+      <td class="status-ok">A little out of the norm</td>
+      {% else %}
+      <td class="status-attention">Not a typical morning</td>
+      {% endif %}
+      {% if item.hygien.num_id == 0 %}
+      <td>N/A</td>
+      {% elif item.hygien.num_id == 1 %}
+      <td class="status-great">Great</td>
+      {% elif item.hygien.num_id == 2 %}
+      <td class="status-ok">Okay</td>
+      {% else %}
+      <td class="status-attention">Not good</td>
+      {% endif %}
+    </tr>
+  </table>
+</div>
+<div id="current-report">
+  <h2>Today's report Notes</h2>
+  <div class="flex-container">
+    <div class="item0 current">{{ item.day }}</div>
+    <div class="item8 current">Bedtime</div>
+    <div class="item9 current">Notes:
+      <ul>
+        {% for note in item.bedtime.notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item1 current">Sleep</div>
+    <div class="item2 current">Notes:
+      <ul>
+        {% for note in item.sleep.notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item3 current">Breakfast</div>
+    <div class="item4 current">Notes:
+      <ul>
+        {% for note in item.eat.notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item5 current">Morning</div>
+    <div class="item6 current">Notes:
+      <ul>
+        {% for note in item.morning.notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item7 current">Notes:
+      <ul>
+        {% for note in item.other.notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item10 current">Bus ride home</div>
+    <div class="item11 current">Notes:
+      <ul>
+        {% for note in item.bus.notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item12 current">Hygien</div>
+    <div class="item13 current">Notes:
+      <ul>
+        {% for note in item.hygien.notes %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

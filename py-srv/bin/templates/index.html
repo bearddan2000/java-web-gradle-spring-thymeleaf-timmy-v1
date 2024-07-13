@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!--
+<a href="/input" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Input</a>
+-->
+<a href="/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current</a>
+<a href="/historical" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Historical</a>
+<!-- 
+<a href="/datatable" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Datatable</a>
+<a href="/stats/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Stats</a>
+<a href="/stats/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Week Stats</a>
+<a href="/stats/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Stats</a>
+<a href="/stats/trends/basic/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Basic Trend Stats</a>
+<a href="/stats/trends/basic/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Week Basic Trend Stats</a>
+<a href="/stats/trends/basic/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Basic Trend Stats</a>
+<a href="/stats/trends/linear/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Linear Trend Stats</a>
+<a href="/stats/trends/linear/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Week Linear Trend Stats</a>
+<a href="/stats/trends/linear/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Linear Trend Stats</a>
+<a href="/stats/trends/expo/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Expo Trend Stats</a>
+<a href="/stats/trends/expo/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Week Expo Trend Stats</a>
+<a href="/stats/trends/expo/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Expo Trend Stats</a>
+<a href="/stats/trends/log/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Log Trend Stats</a>
+<a href="/stats/trends/log/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Week Log Trend Stats</a>
+<a href="/stats/trends/log/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Log Trend Stats</a>
+<a href="/prediction/linear" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Linear Prediction</a>
+<a href="/prediction/expo" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Expo Prediction</a>
+<a href="/prediction/log" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Log Prediction</a>
+<a href="/graph/scatter/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Point Graph</a>
+<a href="/graph/scatter/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Point Graph</a>
+<a href="/graph/scatter/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Point Graph</a>
+<a href="/graph/line/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Line Graph</a>
+<a href="/graph/line/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Line Graph</a>
+<a href="/graph/line/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Line Graph</a>
+<a href="/graph/bar/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Bar Graph</a>
+<a href="/graph/bar/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Bar Graph</a>
+<a href="/graph/bar/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Bar Graph</a>
+<a href="/graph/hbar/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current HBar Graph</a>
+<a href="/graph/hbar/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev HBar Graph</a>
+<a href="/graph/hbar/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD HBar Graph</a>
+<a href="/graph/box/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Box Graph</a>
+<a href="/graph/box/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Box Graph</a>
+<a href="/graph/box/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Box Graph</a>
+<a href="/graph/linear/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Trend Linear Graph</a>
+<a href="/graph/linear/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Trend Linear Graph</a>
+<a href="/graph/linear/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Trend Linear Graph</a>
+<a href="/graph/expo/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Trend Expo Graph</a>
+<a href="/graph/expo/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Trend Expo Graph</a>
+<a href="/graph/expo/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Trend Expo Graph</a>
+<a href="/graph/log/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Trend Log Graph</a>
+<a href="/graph/log/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Trend Log Graph</a>
+<a href="/graph/log/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Trend Log Graph</a>
+<a href="/graph/compare/bar/current/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Bar Compare Current vs Prev Graph</a>
+<a href="/graph/compare/bar/current/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Bar Compare Current vs YTD Graph</a>
+<a href="/graph/compare/bar/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Bar Compare Prev vs YTD Graph</a>
+<a href="/graph/compare/barh/current/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">HBar Compare Current vs Prev Graph</a>
+<a href="/graph/compare/barh/current/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">HBar Compare Current vs YTD Graph</a>
+<a href="/graph/compare/barh/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">HBar Compare Prev vs YTD Graph</a>
+<a href="/graph/compare/line/current/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Line Compare Current vs Prev Graph</a>
+<a href="/graph/compare/line/current/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Line Compare Current vs YTD Graph</a>
+<a href="/graph/compare/line/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Line Compare Prev vs YTD Graph</a>
+<a href="/graph/distribution/histogram/bar/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Frequency Bar Graph</a>
+<a href="/graph/distribution/histogram/bar/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Frequency Bar Graph</a>
+<a href="/graph/distribution/histogram/bar/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Frequency Bar Graph</a>
+<a href="/graph/distribution/cumulative/bar/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Cumulative Bar Graph</a>
+<a href="/graph/distribution/cumulative/bar/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Cumulative Bar Graph</a>
+<a href="/graph/distribution/cumulative/bar/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Cumulative Bar Graph</a>
+<a href="/graph/distribution/histogram/barstacked/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Frequency Stacked Bar Graph</a>
+<a href="/graph/distribution/histogram/barstacked/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Frequency Stacked Bar Graph</a>
+<a href="/graph/distribution/histogram/barstacked/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Frequency Stacked Bar Graph</a>
+<a href="/graph/distribution/cumulative/barstacked/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Cumulative Stacked Bar Graph</a>
+<a href="/graph/distribution/cumulative/barstacked/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Cumulative Stacked Stacked Bar Graph</a>
+<a href="/graph/distribution/cumulative/barstacked/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Cumulative Stacked Stacked Bar Graph</a>
+<a href="/graph/distribution/histogram/step/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Frequency Step Graph</a>
+<a href="/graph/distribution/histogram/step/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Frequency Step Graph</a>
+<a href="/graph/distribution/histogram/step/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Frequency Step Graph</a>
+<a href="/graph/distribution/cumulative/step/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Cumulative Step Graph</a>
+<a href="/graph/distribution/cumulative/step/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Cumulative Step Graph</a>
+<a href="/graph/distribution/cumulative/step/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Cumulative Step Graph</a>
+<a href="/graph/distribution/histogram/stepfilled/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Frequency Step Filled Graph</a>
+<a href="/graph/distribution/histogram/stepfilled/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Frequency Step Filled Graph</a>
+<a href="/graph/distribution/histogram/stepfilled/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Frequency Step Filled Graph</a>
+<a href="/graph/distribution/cumulative/stepfilled/current" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Current Cumulative Step Filled Graph</a>
+<a href="/graph/distribution/cumulative/stepfilled/prev" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Prev Cumulative Step Filled Graph</a>
+<a href="/graph/distribution/cumulative/stepfilled/ytd" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">YTD Cumulative Step Filled Graph</a>
+-->
+{% endblock %}

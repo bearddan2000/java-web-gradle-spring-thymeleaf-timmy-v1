@@ -1,0 +1,5 @@
+Flask
+
+# Lib statistics
+scipy
+statsmodels

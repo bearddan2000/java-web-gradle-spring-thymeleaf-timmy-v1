@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header"/>
+</head>
+
+<body>
+
+<div th:replace="fragments/nav :: nav"/>
+
+<h2>
+    <span th:text="${title}"></span>
+</h2>
+<button id="print-button" onclick="onClick(6)">Html2Pdf</button>
+<div id="current">
+  <h2>Today's report Status</h2>
+  <table class="table table-striped">
+    <tr>
+    </tr>
+    <tr th:switch="${bus.id}">
+      <th>Day before, bus ride home</th>
+      <td th:case="0">N/A</td>
+      <td th:case="1" class="status-great">Great</td>
+      <td th:case="2" class="status-ok">Okay</td>
+      <td th:case="3" class="status-attention">Not good</td>
+    </tr>
+    <tr th:switch="${bedtime.getId()}">
+      <th>Bedtime</th>
+      <td th:case="0">N/A</td>
+      <td th:case="1" class="status-great">Great</td>
+      <td th:case="2" class="status-ok">Okay</td>
+      <td th:case="3" class="status-attention">Not good</td>
+    </tr>
+    <tr th:switch="${sleep.getId()}">
+      <th>Sleep</th>
+      <td th:case="0">N/A</td>
+      <td th:case="1" class="status-great">Great</td>
+      <td th:case="2" class="status-ok">Okay</td>
+      <td th:case="3" class="status-attention">Not good</td>
+    </tr>
+    <tr th:switch="${eat.getId()}">
+      <th>Breakfast</th>
+      <td th:case="0">N/A</td>
+      <td th:case="1" class="status-great">Full breakfast</td>
+      <td th:case="2" class="status-ok">A little breakfast</td>
+      <td th:case="3" class="status-attention">Nothing, I need to eat at school</td>
+    </tr>
+    <tr th:switch="${morning.getId()}">
+      <th>Morning</th>
+      <td th:case="0">N/A</td>
+      <td th:case="1" class="status-great">Normal, nothing different</td>
+      <td th:case="2" class="status-ok">A little out of the norm</td>
+      <td th:case="3" class="status-attention">Not a typical morning</td>
+    </tr>
+    <tr th:switch="${hygien.getId()}">
+      <th>Hygien</th>
+      <td th:case="0">N/A</td>
+      <td th:case="1" class="status-great">Great</td>
+      <td th:case="2" class="status-ok">Okay</td>
+      <td th:case="3" class="status-attention">Not good</td>
+    </tr>
+  </table>
+</div>
+<div id="current-report">
+  <h2>Today's report Notes</h2>
+  <div class="flex-container">
+    <div class="item0 current"><span th:text="${day}"></span></div>
+    <div class="item8 current">Bedtime</div>
+    <div class="item9 current">Notes:
+      <ul>
+        <li th:each="note : ${bedtimeNotes}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item1 current">Sleep</div>
+    <div class="item2 current">Notes:
+      <ul>
+        <li th:each="note : ${sleepNotes}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item3 current">Breakfast</div>
+    <div class="item4 current">Notes:
+      <ul>
+        <li th:each="note : ${eatNotes}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item5 current">Morning</div>
+    <div class="item6 current">Notes:
+      <ul>
+        <li th:each="note : ${morningNotes}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item7 current">Notes:
+      <ul>
+        <li th:each="note : ${Notes}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item10 current">Bus ride home</div>
+    <div class="item11 current">Notes:
+      <ul>
+        <li th:each="note : ${busNotes}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item12 current">Hygien</div>
+    <div class="item13 current">Notes:
+      <ul>
+        <li th:each="note : ${hygienNotes}" th:text="${note}"></li>
+      </ul>
+    </div>
+  </div>
+</div>

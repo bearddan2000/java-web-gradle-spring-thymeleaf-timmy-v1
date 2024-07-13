@@ -1,0 +1,78 @@
+.item0 {font-size: medium; font-weight: bold; grid-area: header ;}
+.item1 { grid-area: sleep; }
+.item2 { grid-area: sleep-notes; }
+.item3 { grid-area: eat; }
+.item4 { grid-area: eat-notes; }
+.item5 { grid-area: routine; }
+.item6 { grid-area: routine-notes; }
+.item7 { grid-area: notes; }
+.item8 { grid-area: nightly }
+.item9 { grid-area: nightly-notes }
+.item10 { grid-area: bus; }
+.item11 { grid-area: bus-notes; }
+.item12 { grid-area: hygien }
+.item13 { grid-area: hygien-notes }
+
+.flex-container {
+    display: grid; /* or inline-flex */
+    /*border: 2px seashell;*/
+    grid-template-areas:'header header header header header' 
+                        'nightly sleep eat routine notes'
+                        'nightly-notes sleep-notes eat-notes routine-notes notes'
+                        'bus bus bus hygien hygien'
+                        'bus-notes bus-notes bus-notes hygien-notes hygien-notes';
+    gap: 10px;
+    padding: 10px;
+}
+.graph-container {
+    display: grid; /* or inline-flex */
+    /*border: 2px seashell;*/
+    grid-template-areas:'header header header' 
+                        'nightly sleep sleep'
+                        'nightly sleep sleep';
+    gap: 10px;
+    padding: 10px;
+}
+.legend-container {
+    display: grid; /* or inline-flex */
+    /*border: 2px seashell;*/
+    grid-template-areas:'header header header header' 
+                        'nightly sleep eat routine'
+                        "nightly-notes sleep-notes eat-notes routine-notes";
+    gap: 10px;
+    padding: 10px;
+}
+
+.flex-container > div.current {
+    padding: 20px 10px;
+    text-align: center;
+    color: black;
+    background-color: #ffdead;
+}
+
+.flex-container > div.historical {
+    padding: 20px 10px;
+    text-align: center;
+    color: black;
+    background-color: darkorange;
+}
+
+.legend-container > div {
+    padding: 20px 10px;
+    text-align: center;
+    color: black;
+    background-color: powderblue;
+}
+.status-great {color: darkgreen;}
+.status-great-num {color: darkgreen;}
+.status-great-num::before {content: url('../img/up.jpg');}
+.status-ok {color: black}
+.status-attention {color: darkred}
+.status-attention-num {color: darkred}
+.status-attention-num::before {content: url('../img/down.jpg');}
+footer {
+  padding: 20px 10px;
+  text-align: right;
+  font-style: italic;
+  font-size: small;
+}

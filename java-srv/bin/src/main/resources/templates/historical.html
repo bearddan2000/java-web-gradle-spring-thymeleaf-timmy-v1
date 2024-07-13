@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header"/>
+</head>
+
+<body>
+
+<div th:replace="fragments/nav :: nav"/>
+
+<h2>
+    <span th:text="${title}"></span>
+</h2>
+<button id="print-button" onclick="onClick(6)">Html2Pdf</button>
+<span th:each="historical : ${lst}">
+  <div class="flex-container">
+    <div class="item0 historical" th:text="${historical.getDay()}"></div>
+    <div class="item8 historical">Bedtime: 
+      <span th:switch="${historical.getBedtime().getId()}">
+        <div th:case="0">N/A</div>
+        <div th:case="1" class="status-great">Great</div>
+        <div th:case="2" class="status-ok">Okay</div>
+        <div th:case="3" class="status-attention">Not good</div>
+      </span>
+    </div>
+    <div class="item9 historical">Notes: 
+      <ul>
+        <li th:each="note : ${historical.getBedtime().getFinalNotes()}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item1 historical">Sleep:
+      <span th:switch="${historical.getSleep().getId()}">
+        <div th:case="0">N/A</div>
+        <div th:case="1" class="status-great">Great</div>
+        <div th:case="2" class="status-ok">Okay</div>
+        <div th:case="3" class="status-attention">Not good</div>
+      </span>
+    </div>
+    <div class="item2 historical">Notes: 
+      <ul>
+        <li th:each="note : ${historical.getSleep().getFinalNotes()}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item3 historical">Breakfest:
+      <span th:switch="${historical.getEat().getId()}">
+        <div th:case="0">N/A</div>
+        <div th:case="1" class="status-great">Full breakfast</div>
+        <div th:case="2" class="status-ok">A little breakfast</div>
+        <div th:case="3" class="status-attention">Nothing, I need to eat at school</div>
+      </span>
+    </div>
+    <div class="item4 historical">Notes: 
+      <ul>
+        <li th:each="note : ${historical.getEat().getFinalNotes()}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item5 historical">Morning:
+      <span th:switch="${historical.getMorning().getId()}">
+        <div th:case="0">N/A</div>
+        <div th:case="1" class="status-great">Normal, nothing different</div>
+        <div th:case="2" class="status-ok">A little out of the norm</div>
+        <div th:case="3" class="status-attention">Not a typical morning</div>
+      </span>
+    </div>
+    <div class="item6 historical">Notes: 
+      <ul>
+        <li th:each="note : ${historical.getMorning().getFinalNotes()}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item7 historical">Notes: 
+      <ul>
+        <li th:each="note : ${historical.getFinalNotes()}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item10 historical">Bus ride home: 
+      <span th:switch="${historical.getBus().getId()}">
+        <div th:case="0">N/A</div>
+        <div th:case="1" class="status-great">Great</div>
+        <div th:case="2" class="status-ok">Okay</div>
+        <div th:case="3" class="status-attention">Not good</div>
+      </span>
+    </div>
+    <div class="item11 historical">Notes: 
+      <ul>
+        <li th:each="note : ${historical.getBus().getFinalNotes()}" th:text="${note}"></li>
+      </ul>
+    </div>
+    <div class="item12 historical">Hygien: 
+      <span th:switch="${historical.getHygien().getId()}">
+        <div th:case="0">N/A</div>
+        <div th:case="1" class="status-great">Great</div>
+        <div th:case="2" class="status-ok">Okay</div>
+        <div th:case="3" class="status-attention">Not good</div>
+      </span>
+    </div>
+    <div class="item13 historical">Notes: 
+      <ul>
+        <li th:each="note : ${historical.getHygien().getFinalNotes()}" th:text="${note}"></li>
+      </ul>
+    </div>
+  </div>
+</span>

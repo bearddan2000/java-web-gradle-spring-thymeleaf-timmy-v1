@@ -1,0 +1,75 @@
+version: "3.7"
+
+services:
+
+  py-api-srv:
+    build: py-api-srv
+    command: python3 app.py
+    healthcheck:
+      test: curl --fail http://localhost:5000 || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+    ports:
+      - "81:5000"
+    profiles:
+      - dev
+      - test
+      - prod
+
+  java-srv:
+    build: java-srv
+    healthcheck:
+      test: curl --fail http://localhost:8080 || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+    ports:
+      - 80:8080
+    depends_on:
+      py-api-srv:
+        condition: service_healthy
+        restart: true
+    volumes:
+      - ./java-srv/bin:/code
+    profiles:
+      - dev
+      - test
+      - prod
+
+  py-test-srv:
+    build: py-test-srv
+    # command: python3 -m unittest
+    command: python3 app.py
+    depends_on:
+      java-srv:
+        condition: service_healthy
+        restart: true
+      py-api-srv:
+        condition: service_healthy
+        restart: true
+    links:
+      - "java-srv:java-srv"
+      - "py-api-srv:py-api-srv"
+    profiles:
+      - test
+
+  py-web-crawler-delta:
+    build: py-web-crawler/current-historical
+    command: python3 /home/developer/app.py
+    depends_on:
+      java-srv:
+        condition: service_healthy
+    environment:
+      - DISPLAY=:0
+    links:
+      - "java-srv:java-srv"
+      - "py-api-srv:py-api-srv"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./merge-pdf/current-historical/bin:/home/developer/Downloads
+    profiles:
+      - prod
+      

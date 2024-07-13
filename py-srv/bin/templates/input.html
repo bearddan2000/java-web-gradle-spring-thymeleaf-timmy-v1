@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="/save" method="get">
+  <input type="hidden" name="day-number">{{ day }}</input>
+  <div class="flex-container">
+    <div class="item0">{{ item.day }}</div>
+    <div class="item1">Sleep: {{ item.sleep.id }}</div>
+    <div class="item2">Notes: 
+      <ul>
+        {% for note in item.sleep.notes %}
+          <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item3">Breakfest: {{ item.eat.id }}</div>
+    <div class="item4">Notes: 
+      <ul>
+        {% for note in item.eat.notes %}
+          <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item5">Morning: {{ item.morning.id }}</div>
+    <div class="item6">Notes: 
+      <ul>
+        {% for note in item.morning.notes %}
+          <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="item7">Notes: 
+      <ul>
+        {% for note in item.other.notes %}
+          <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,59 @@
+{
+
+    "projects": [
+        {
+            "reports": [
+                {
+                    "id": "M",
+                    "bus": {"id": 0, "notes": [ 0 ]},
+                    "bedtime": {"id": 0, "notes": [ 0 ]},
+                    "sleep": {"id": 0, "notes": [ 0 ]},
+                    "eat": {"id": 0, "notes": [ 0 ]},
+                    "morning": {"id": 0, "notes": [ 0 ]},
+                    "hygien": {"id": 0, "notes": [ 0 ]},
+                    "notes": [ 0 ]
+                },
+                {
+                    "id": "T",
+                    "bus": {"id": 0, "notes": [ 0 ]},
+                    "bedtime": {"id": 0, "notes": [ 0 ]},
+                    "sleep": {"id": 0, "notes": [ 0 ]},
+                    "eat": {"id": 0, "notes": [ 0 ]},
+                    "morning": {"id": 0, "notes": [ 0 ]},
+                    "hygien": {"id": 0, "notes": [ 0 ]},
+                    "notes": [ 0 ]
+                },
+                {
+                    "id": "W",
+                    "bus": {"id": 0, "notes": [ 0 ]},
+                    "bedtime": {"id": 0, "notes": [ 0 ]},
+                    "sleep": {"id": 0, "notes": [ 0 ]},
+                    "eat": {"id": 0, "notes": [ 0 ]},
+                    "morning": {"id": 0, "notes": [ 0 ]},
+                    "hygien": {"id": 0, "notes": [ 0 ]},
+                    "notes": [ 0 ]
+                },
+                {
+                    "id": "R",
+                    "bus": {"id": 0, "notes": [ 0 ]},
+                    "bedtime": {"id": 0, "notes": [ 0 ]},
+                    "sleep": {"id": 0, "notes": [ 0 ]},
+                    "eat": {"id": 0, "notes": [ 0 ]},
+                    "morning": {"id": 0, "notes": [ 0 ]},
+                    "hygien": {"id": 0, "notes": [ 0 ]},
+                    "notes": [ 0 ]
+                },
+                {
+                    "id": "F",
+                    "bus": {"id": 0, "notes": [ 0 ]},
+                    "bedtime": {"id": 0, "notes": [ 0 ]},
+                    "sleep": {"id": 0, "notes": [ 0 ]},
+                    "eat": {"id": 0, "notes": [ 0 ]},
+                    "morning": {"id": 0, "notes": [ 0 ]},
+                    "hygien": {"id": 0, "notes": [ 0 ]},
+                    "notes": [ 0 ]
+                }
+            ]
+        }
+    ]
+}

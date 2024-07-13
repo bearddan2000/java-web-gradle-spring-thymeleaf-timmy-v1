@@ -1,0 +1,8 @@
+# for api call
+requests
+
+# for automated downloads
+selenium
+
+# allows functional programing
+pyfunctional
